@@ -9,7 +9,16 @@ Pis=5000;  //psi
 Pes=1000;  // psi
 Rp=3.25;   // inch, packer hole size
 
-Ae=%pi*Re^2
-Ai=%pi*Ri^2
-As=Ae-Ai
-Ap=%pi*(Rp/2)^2
+Ae=%pi*Re^2;
+Ai=%pi*Ri^2;
+As=Ae-Ai;
+Ap=%pi*(Rp/2)^2;
+
+ROi=9.63;
+x=0:10000;
+W=Ws-(ROi/0.1336808)*(As/144);
+Fb=(ROi/0.1336808)*(L-x)*(As/144);
+
+F=20000;
+LAMa=(F+Fb-x*W)/As
+n=F/W;
