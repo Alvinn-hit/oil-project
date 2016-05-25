@@ -1,0 +1,229 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+
+
+\begin{document}
+\title{Equations of Tubing Length}
+\author{Lake Hu}
+\maketitle
+
+\section{Introduction}
+This document describes the equations of tubing length, where the tubing is
+hanged in a well is full of some kind of fluids, such as water, oil, or
+mud. Many factors in a well make the tubing longer or shorter because of
+force, temperature.
+
+\section{Tubing Sealed in Packer}
+\subsection{Neutral Point}
+The neutral point is a point of which the forces, include axial, radial,
+and tangential, are balance.
+
+\begin{equation} \label{eqNeutral}
+n = \frac{F}{w}
+\end{equation}
+\begin{center}
+\begin{tabular}{c l}
+$F$ & Force, compression is positive. \\
+$w$ & weight of tubing per unit. \\
+\end{tabular}
+\end{center}
+
+\subsubsection{Comments}
+$F$ is actual existing, \emph{not fictitious}. $w$ is calculated by Eq. \ref{eqWeight} if there are fluids.
+\begin{equation} \label{eqWeight}
+w = w_s + w_i - w_o
+\end{equation}
+\begin{center}
+\begin{tabular}{c l}
+$w_s$ & average weight of tubing per unit length. \\
+$w_i$ & weight of liquid in the tubing per unit length. \\
+$w_o$ & weight of outside liquid displaced per unit length. \\
+\end{tabular}
+\end{center}
+
+\subsection{Hooke's Law}
+
+\begin{equation} \label{eqHooke}
+\Delta L_1 = - \frac{LF}{EA_s}
+\end{equation}
+\begin{center}
+\begin{tabular}{c l}
+$F$ & Force, compression is positive. \\
+$L$ & Length of tubing. \\
+$E$ & Young's modulus \\
+$A_s$ & cross sectional area of tubing wall \\
+\end{tabular}
+\end{center}
+
+\subsubsection{Comments}
+$F$ is actually existing (\emph{nonfictitious}). The paper gives a equation of
+packer existing. I wonder what's the equation if no packer.
+\begin{equation}\label{eqActualForce}
+F_a = (A_p - A_i)P_i - (A_p - A_o)P_0
+\end{equation}
+\begin{center}
+\begin{tabular}{c l}
+$A_p$ & Area corresponding to packer bore ID \\
+$A_o$ & Area corresponding to tubing OD \\
+$A_i$ & Area corresponding to tubing ID \\
+$P_i$ & Pressure inside the tubing at the packer level \\
+$P_o$ & Pressure outside the tubing at the packer level \\
+\end{tabular}
+\end{center}
+Without packer, the $P_i$ is equal to the $P_o$, and the $A_p$ is equal to the $P_o$.
+
+
+\subsection{Helical Buckling Length}
+
+\begin{equation} \label{eqBuckle1}
+\Delta L_2 = - \frac{r^2F^2}{8EIw} 
+\end{equation}
+\begin{equation} \label{eqBuckle2}
+\Delta L_2 = - \frac{r^2F^2}{8EIw}\left(\frac{Lw}{F}\left(2-\frac{Lw}{F}\right)\right)
+\end{equation}
+
+\begin{center}
+\begin{tabular}{c l}
+$r$ & tubing-to-casing radial clearance \\
+$F$ & fictitious force \\
+$E$ & young's modulus \\
+$I$ & moment of inertia of tubing cross-section. see Eq. \ref{eqInertia}. \\
+$w$ & weight of tubing per unit length. see Eq. \ref{eqWeight}. \\
+\end{tabular}
+\end{center}
+
+\begin{equation} \label{eqInertia}
+I=\frac{\pi}{64}(D^4 - d^4)
+\end{equation}
+\begin{center}
+\begin{tabular}{c l}
+$D$ & out diameter of tubing. \\
+$d$ & inner diameter of tubing. \\
+\end{tabular}
+\end{center}
+
+\subsubsection{Comments}
+The first equation is for the length change resulting from helical buckling
+when the neutral point is within the string. When the calculated value of the
+neutral point is above the upper end of the string, the second equation is
+used.
+
+The force $F$ is called fictitious because the actual force is too complex
+when tubing is buckling. 
+\begin{equation}\label{eqFictitiousForce}
+F = A_p(P_i - P_o)
+\end{equation}
+ Without packer, the $P_i$ is equal to $P_o$ and the $A_p$ is $A_o$. The $F$
+ is zero.
+
+We can get a equation below by combining Eq. \ref{eqActualForce} and
+Eq. \ref{eqFictitiousForce}.
+\begin{equation}\label{eqA2F}
+F_f = F_a + A_iP_i - A_oP_o
+\end{equation}
+where $F_f$ is the force in Eq. \ref{eqFictitiousForce} and $F_a$ is the force
+in Eq. \ref{eqActualForce}.
+
+The weight $w$ of tubing in the presence of liquids should be $w = w_s + w_i -
+w_o$, where $w_s$ is the average (i.e., including couplings) weight of tubing
+per unit length, $w_i$ is the weight of liquid in the tubing per unit length
+and $w_o$ is the weight of outside liquid displaced per unit length.
+
+\subsection{Due to fluid}
+\begin{equation}
+\Delta L_3 = - \frac{\nu}{E}\frac{\Delta \rho_i - R^2\Delta \rho_o -
+  \frac{1+2\nu}{2\nu}\delta}{R^2 - 1}L^2 - \frac{2\nu}{E}\frac{\Delta p_i -
+  R^2\Delta p_o}{R^2 - 1}L
+\end{equation}
+\begin{center}
+\begin{tabular}{c l}
+$\delta$ & drop of pressure in the tubing due to flow per unit length.\\
+$\nu$ & Poisson's ratio of the material (for steel, it's 0.3). \\
+$E$ & young's modulus \\
+$\Delta \rho_i$ & change in density of liquid in the tubing. \\
+$\Delta \rho_o$ & change in density of liquid in the annulus. \\
+$R$ & ratio $OD/ID$ of the tubing. \\
+$\Delta p_i$ & change in surface tubing pressure. \\
+$\Delta p_o$ & change in surface annulus pressure. \\
+\end{tabular}
+\end{center}
+
+\subsubsection{Comments}
+$\delta$ is the drop of pressure. Positive when the flow is downward. The
+\emph{drop} means lower, doesn't it? If so, what's about the higher? And
+what's about the change of pressure due to the explosion. I think the flow
+means the whole tubing's, not a part.
+
+Meanwhile, what's about the flow in annulus? Or what's about the change of
+pressure in annulus?
+
+The flow will change the radial pressure forces. Is the neutral point changed
+either?
+
+\subsubsection{Perforating/Propellant}
+During perforating w/o propellant, there is the quick change of
+pressure. Meanwhile the fluid will be moved upward, which might make the
+change of density of fluid.
+
+\subsection{Temperature}
+\begin{equation}
+\Delta L_4 = L\beta\Delta t
+\end{equation}
+\begin{center}
+\begin{tabular}{c l}
+$\beta$ & coefficient of thermal expansion of the tubing material (for steel,
+  it's $6.9E-6$ per Fahrenheit. \\
+$\Delta t$ & change in average tubing temperature. \\
+\end{tabular}
+\end{center}
+
+\subsection{Comments}
+<Helical Buckling of Tubing Sealed in Packers>, was published in 1962. What's
+the well operation at that time?
+
+\subsubsection{Example operation}
+The packer has been setted and tubing has been through the packer. After that
+the real operation begin. The paper don't tell what's the operation
+exactly. It just tell the pressure of tubing and annulus will be changed, the
+fluid will be replaced, the temperature will be up or down. I don't think it
+is the well completion.
+
+But this information gives me some hints, which I should understand what the
+operation have done during well completion. I mean whether the pressure, fluid
+and temperature are changed.
+
+\subsubsection{No Movement}
+The first step is calculate the length of tubing that can move freely in
+packer. Then there is a shoulder that restrains the downward movement of
+tubing in packer. The paper says there is slack-off makes the tubing longer.
+
+\subsubsection{The length of Tubing}
+
+\section{Combination Tubing Strings Sealed in Packers}
+In actual well, the uniform tubing string is not exist. The different size of
+the cases and tubings that are different size combine together into the whole
+strings. Meanwhile there are different fluids exist in the case and tubing.
+
+The combination completion consists of one or more of the following: (1) more
+than one size of tubing; (2) more than one size of casing, and (3) two or more
+fluids in the tubing and/or annulus.
+
+Based on the equations above, the sections of the tubings in the same size or
+same fluid have to be calculated independantly and relatively.
+
+\subsection{Hooke's Law}
+Eq. \ref{eqHooke} is appled for each section that has the same size of tubing
+and casing, and the same fluid. Be careful, the $F$ must be calculated for
+each one.
+
+\subsection{Helical Buckling}
+Which Eq. \ref{eqBuckle1} or Eq. \ref{eqBuckle2} is appled is determined by
+Eq. \ref{eqNeutral}.
+
+The neutral point is 
+\begin{equation}
+n= \frac{F - \sum_{i=0}^n{L_iW_i}}{W_{n+1}} + \sum_{i=0}^nL_i
+\end{equation}
+The force $F$ in the above equation is fictitious.
+\end{document}
